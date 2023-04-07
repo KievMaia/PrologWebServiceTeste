@@ -1,7 +1,7 @@
 package br.com.zalf.prolog.webservicetestes.movimento._model.entity;
 
 import br.com.zalf.prolog.webservicetestes.processoMovimento._model.entity.ProcessoMovimento;
-import br.com.zalf.prolog.webservicetestes.product._model.entity.Product;
+import br.com.zalf.prolog.webservicetestes.produto._model.entity.Produto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +26,7 @@ public class Movimento {
     
     @ManyToOne
     @JoinColumn(name = "cod_produto", nullable = false)
-    private Product produto;
+    private Produto produto;
     
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal quantidade;

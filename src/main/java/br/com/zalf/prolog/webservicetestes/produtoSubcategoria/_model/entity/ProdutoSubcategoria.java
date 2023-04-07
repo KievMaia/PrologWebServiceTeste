@@ -5,6 +5,7 @@ import br.com.zalf.prolog.webservicetestes.produtoCategoria._model.entity.Produt
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
@@ -12,6 +13,7 @@ import java.time.OffsetDateTime;
 @Builder(toBuilder = true, setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Entity
 @Table(name = "produto_subcategoria")
 public class ProdutoSubcategoria {

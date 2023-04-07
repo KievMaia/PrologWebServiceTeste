@@ -1,16 +1,18 @@
 package br.com.zalf.prolog.webservicetestes.estoque._model.entity;
 
 import br.com.zalf.prolog.webservicetestes.empresa._model.entity.Empresa;
-import br.com.zalf.prolog.webservicetestes.product._model.entity.Product;
+import br.com.zalf.prolog.webservicetestes.produto._model.entity.Produto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder(toBuilder = true, setterPrefix = "with")
 @Entity
 @Table(name = "estoque")
@@ -22,7 +24,7 @@ public class Estoque {
 
     @ManyToOne
     @JoinColumn(name = "cod_produto", nullable = false)
-    private Product product;
+    private Produto produto;
 
     @ManyToOne
     @JoinColumn(name = "cod_unidade", nullable = false)
@@ -40,7 +42,7 @@ public class Estoque {
     @Column(name = "lead_time", nullable = false)
     private Integer leadTime;
 
-    @Column(name = "qtd_estoque_minimo", precision = 10, scale = 2, nullable = false)
+    @Column(name = "qtd_estoque_minimo", precision = 10, scale = 2)
     private BigDecimal qtdEstoqueMinimo;
 
     @Column(nullable = false)

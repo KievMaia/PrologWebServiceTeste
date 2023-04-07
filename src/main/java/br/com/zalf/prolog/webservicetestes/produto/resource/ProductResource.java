@@ -1,9 +1,9 @@
-package br.com.zalf.prolog.webservicetestes.product.resource;
+package br.com.zalf.prolog.webservicetestes.produto.resource;
 
-import br.com.zalf.prolog.webservicetestes.product._model.dto.ProductDto;
-import br.com.zalf.prolog.webservicetestes.product._model.dto.ProductInsertDto;
-import br.com.zalf.prolog.webservicetestes.product.mapper.ProductMapper;
-import br.com.zalf.prolog.webservicetestes.product.service.ProductService;
+import br.com.zalf.prolog.webservicetestes.produto._model.dto.ProdutoDto;
+import br.com.zalf.prolog.webservicetestes.produto._model.dto.ProdutoInsertDto;
+import br.com.zalf.prolog.webservicetestes.produto.mapper.ProductMapper;
+import br.com.zalf.prolog.webservicetestes.produto.service.ProdutoService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -18,24 +18,25 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ProductResource {
     @NotNull
-    private final ProductService partService;
+    private final ProdutoService partService;
     @NotNull
     private final ProductMapper partMapper;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDto insert(@RequestBody @Valid final ProductInsertDto partInsertDto) {
+    public ProdutoDto insert(@RequestBody @Valid final ProdutoInsertDto partInsertDto) {
         return partService.insert(partInsertDto);
     }
 
     @GetMapping
-    public List<ProductDto> getAll(){
+    public List<ProdutoDto> getAll(){
         return partService.getAll();
     }
 
     @GetMapping("/{partId}")
-    public ProductDto getPartById(@PathVariable final Long partId) {
-        return partMapper.toDto(partService.findPartById(partId));
+    public ProdutoDto getPartById(@PathVariable final Long partId) {
+        final var product = partService.findPartById(partId);
+        return ProductMapper.toDto().apply(product);
     }
 
     @PutMapping("/{partId}/active")
@@ -50,9 +51,9 @@ public class ProductResource {
         partService.disable(partId);
     }
 
-    @PutMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void partUpdate(@RequestBody final ProductDto partDto) {
-        this.partService.update(partDto);
-    }
+//    @PutMapping
+//    @ResponseStatus(HttpStatus.OK)
+//    public void partUpdate(@RequestBody final ProductDto partDto) {
+//        this.partService.update(partDto);
+//    }
 }

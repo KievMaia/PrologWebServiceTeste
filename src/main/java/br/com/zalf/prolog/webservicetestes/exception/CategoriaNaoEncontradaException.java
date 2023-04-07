@@ -1,6 +1,6 @@
 package br.com.zalf.prolog.webservicetestes.exception;
 
-public class CategoriaNaoEncontradaException extends EntidadeNaoEncontradaException{
+public class CategoriaNaoEncontradaException extends EntidadeNaoEncontradaException {
     private static final long serialVersionUID = 1L;
     public CategoriaNaoEncontradaException(String mensagem) {
         super(mensagem);

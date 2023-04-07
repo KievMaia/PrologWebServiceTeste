@@ -1,6 +1,6 @@
-package br.com.zalf.prolog.webservicetestes.product._model.dto;
+package br.com.zalf.prolog.webservicetestes.produto._model.dto;
 
-import br.com.zalf.prolog.webservicetestes.product._model.entity.UnitMeasureEnum;
+import br.com.zalf.prolog.webservicetestes.produto._model.entity.UnitMeasureEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
@@ -8,9 +8,9 @@ import org.springframework.lang.Nullable;
 
 @Data
 @Builder(toBuilder = true, setterPrefix = "with")
-public class ProductDto {
+public class ProdutoDto {
     @NotNull
-    private final Long id;
+    private final Long codigo;
     @NotNull
     private final Long subcategoryId;
     @NotNull

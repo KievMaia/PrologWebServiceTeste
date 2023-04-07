@@ -1,9 +1,17 @@
-package br.com.zalf.prolog.webservicetestes.product._model.entity;
+package br.com.zalf.prolog.webservicetestes.produto._model.entity;
 
 import jakarta.validation.constraints.NotNull;
 import org.springframework.lang.Nullable;
 
 public enum UnitMeasureEnum {
+
+    U {
+        @NotNull
+        @Override
+        public String toDatabaseValue() {
+            return UnitMeasureEnum.U.toString();
+        }
+    },
 
     MT {
         @NotNull
